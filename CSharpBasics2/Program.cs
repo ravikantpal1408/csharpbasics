@@ -27,56 +27,85 @@ namespace Program
          */
         public static void Main(string[] args)
         {
-
-            checked
+            // Scope
+            byte a = 1;
             {
-                // 999999999999993333333333333 
-                //  testVar =  999999999999993333333333333;
+                
+                byte b = 2;
+                {
+                    byte c = 3;
+                    
+                }
 
-                byte num = 255;
-
-                byte num2 = (byte)(num + 1);
-
-                Console.WriteLine(num2);
+               
             }
-          
 
-            
-
-
-          
-
+            // Type Conversion
             /*
-             TYPES: 
-             
-            C#                  |                   .NET
-
-            byte                |               Byte       
-            short               |               Int16
-            int                 |               Int32
-            long                |               Int64
-            float               |               Single 
-            double              |               Double - 8
-            decimal             |               Decimal - 16
-            char                |               Char
-            bool                |               Boolean            
-             
-             
+             1- Implicit Type Conversion
              */
+
+            byte num = 1;
+            int numBig = num;
+
+            int i =  1;
+            i /= 2;
+            i = i / 2;
+            byte j = (byte) i; /// Explicit Cast
+
+            string h = "123";
+            int t = Convert.ToInt32(h); // -> Types between different compatible types 
+            int u = int.Parse(h);
+
+            // false || fasle
+
+            // Operators
+            /*
+            1 - Arithmatic Operators -> (+ , _ , * ,  % ,/) increment /decrement ++ , --
+            2 - Assignment Operators -> =, +=, -=, *=, /=
+            3 - Logical Operators -> &&, ||  -- or , !
+            4 - Bitwise Operators -> & , | 
+            5 - Comparision Operators -> ==, != , > , >= , <, <=
+             */
+
+            // -> Arrays -> staic data collector
+            int[] numArr = new int[4] {1,2,3,4};
+            //numArr[0] = 1;
+            //numArr[1] = 2;
+            //numArr[2] = 3;
+            //numArr[3] = 4;
+            // jagged Array -> Array within an Array 
+            Console.WriteLine(numArr[0]);
+            
         }
+
+        // Structures
+
 
         public string ReturnSomeText()
         {
+            _ = Car.Name;
             return "Hello !";
         }
     }
 
+    public struct RgbColor
+    {
+        public int red;
+        public int green;
+        public int blue;
+    }
+
+    
+
+
 
     class Car
     {
-        public Decimal Name { get; set; }
+        public static Decimal Name { get; set; }
 
-        public void Start()
+       
+        public static void Start()
         {
             string num = "1273642234";
             int number = Convert.ToInt32(num);
