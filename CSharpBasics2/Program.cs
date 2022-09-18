@@ -27,17 +27,18 @@ namespace Program
          */
         public static void Main(string[] args)
         {
+            Console.WriteLine("This is the thing what i am checking ... ");
             // Scope
             byte a = 1;
             {
-                
+
                 byte b = 2;
                 {
                     byte c = 3;
-                    
+
                 }
 
-               
+
             }
 
             // Type Conversion
@@ -48,10 +49,10 @@ namespace Program
             byte num = 1;
             int numBig = num;
 
-            int i =  1;
+            int i = 1;
             i /= 2;
             i = i / 2;
-            byte j = (byte) i; /// Explicit Cast
+            byte j = (byte)i; /// Explicit Cast
 
             string h = "123";
             int t = Convert.ToInt32(h); // -> Types between different compatible types 
@@ -69,14 +70,14 @@ namespace Program
              */
 
             // -> Arrays -> staic data collector
-            int[] numArr = new int[4] {1,2,3,4};
+            int[] numArr = new int[4] { 1, 2, 3, 4 };
             //numArr[0] = 1;
             //numArr[1] = 2;
             //numArr[2] = 3;
             //numArr[3] = 4;
             // jagged Array -> Array within an Array 
             Console.WriteLine(numArr[0]);
-            
+
         }
 
         // Structures
@@ -96,7 +97,7 @@ namespace Program
         public int blue;
     }
 
-    
+
 
 
 
@@ -104,7 +105,7 @@ namespace Program
     {
         public static Decimal Name { get; set; }
 
-       
+
         public static void Start()
         {
             string num = "1273642234";
