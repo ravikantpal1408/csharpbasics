@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ravikantpal/workspace/csharpbasics/CSharpBasics2/CSharpBasics2.csproj": {}
+    "C:\\Workspace\\csharpbasics\\CSharpBasics2\\CSharpBasics2.csproj": {}
   },
   "projects": {
-    "/Users/ravikantpal/workspace/csharpbasics/CSharpBasics2/CSharpBasics2.csproj": {
+    "C:\\Workspace\\csharpbasics\\CSharpBasics2\\CSharpBasics2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ravikantpal/workspace/csharpbasics/CSharpBasics2/CSharpBasics2.csproj",
+        "projectUniqueName": "C:\\Workspace\\csharpbasics\\CSharpBasics2\\CSharpBasics2.csproj",
         "projectName": "CSharpBasics2",
-        "projectPath": "/Users/ravikantpal/workspace/csharpbasics/CSharpBasics2/CSharpBasics2.csproj",
-        "packagesPath": "/Users/ravikantpal/.nuget/packages/",
-        "outputPath": "/Users/ravikantpal/workspace/csharpbasics/CSharpBasics2/obj/",
+        "projectPath": "C:\\Workspace\\csharpbasics\\CSharpBasics2\\CSharpBasics2.csproj",
+        "packagesPath": "C:\\Users\\ravik\\.nuget\\packages\\",
+        "outputPath": "C:\\Workspace\\csharpbasics\\CSharpBasics2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/ravikantpal/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\ravik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,7 +45,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -52,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
