@@ -5,90 +5,108 @@ namespace Program
 {
     public class Program
     {
-        /*
-         1- File
-         2- Directory 
-         3- Oops (runtime polymorphism)
-         4- Access specifier         
-         */
-
-        protected static void Main(string[] args)
+        class A
         {
-            // Session 5
-            // 
+            public virtual void someMethod()
+            {
+                Console.WriteLine("This is base class method");
+            }
+        }
 
-            var path = @"C:\Workspace\csharpbasics\CSharpBasics2\some-folder\some-dir";
+        class B : Demo, D, X
+        {
+            public void someContractBody()
+            {
+                throw new NotImplementedException();
+            }
 
-            //if(File.Exists(path))
+            public void someContractBody(string b)
+            {
+                throw new NotImplementedException();
+            }
+
+            //public void someMethodInClassB()
             //{
-            //    //File.WriteAllText(path, "This is the csharp class we having");
-               
+
             //}
 
-            Directory.CreateDirectory(path);
-            // OOps-> Obeject Oriented Programming Concepts
-            /*
-             1- Polymorphism
-             2- Encapsulation 
-             3- Inheritance
-             4- Abstraction
+            //public override void someMethod()
+            //{
+            //    base.someMethod();
+            //    Console.WriteLine("This is someMethod now being overriden in child class");
+            //}
+            public override void someMethod()
+            {
+                throw new NotImplementedException();
+            }
+        }
 
+        public static void Main(string[] args)
+        {
+            // session 6
+            // Runtime Polymorphisms
+
+            /*
+             what is class 
+            what is struc
+            -> what is interface ?
+             
+             */
+
+            //B b = new B();
+            //b.someMethod();
+
+            /// implementation -> forming a contract between two class
+            /// 
+            //var input = Console.ReadLine();
+            //Console.WriteLine("This is the input we got from console : =====> " +input);
+            Console.WriteLine("Enter a number a: ");
+            var a = Console.ReadLine();
+            Console.WriteLine("Enter a number b: ");
+            var b = Console.ReadLine();
+            /*
+             Debugging key shortcuts for vs
+            f10 -> step over 
+            f11 -> step in
+            f5 -> continue
              
              */
 
 
-        }
+            var c = Convert.ToInt32(a) + Convert.ToInt32(b);
 
-        public void Start()
-        {
+            Console.WriteLine("Sum of a + b = " +c);
+            Console.ReadKey(); // Hold the console window untill we dont press any key on our keyboard
 
-        }
-        public void Start(string withSomeParams)
-        {
 
         }
 
-        public void Start(string withSomeParams, int startTime)
-        {
+    }
 
+    interface D
+    {
+        void someContractBody();
+    }
+
+    interface X
+    {
+        void someContractBody(string b);
+    }
+
+
+    public abstract class Demo
+    {
+        public abstract void someMethod();
+
+        public void someMethod2()
+        {
+            Console.WriteLine("some functionality");
         }
     }
 
-    
-
-    public class A
+    public abstract class Demo2
     {
-        public some_interface _method;
-        A(some_interface method)
-        {
-            _method = method;
-        }
-
-
-        public void functionality()
-        {
-            var func =  _method.methodOne();
-            Console.WriteLine(func);
-        }
-    }
-
-    public interface some_interface
-    {
-        public string methodOne();
-    }
-
-    class B : some_interface
-    {
-        public string methodOne()
-        {
-            // 1000 line
-            return "some functionality";
-        }
-    }
-
-    private class Z
-    {
-
+        
     }
 
 }
