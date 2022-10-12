@@ -5,135 +5,95 @@ namespace Program
 {
     public class Program
     {
-
         public static void Main(string[] args)
         {
-            /// Session 8 - Generics 
-            /// Let say there is a case you wanna create your own list api
+            // Session 9 : Delegates
             /*
-            var integerList = new CustomList();
+                An object that knows how to call a method or a group of method 
+                A reference to a function 
 
-            integerList.Add(1);
-            integerList.Add(2);
-            integerList.Add(3);
-            integerList.Add("string");
-            integerList.Add(9.0);
+                - Multicast delegate -> allows you to point to multiple functions 
+                - Delegate -> allow you to point to a single function
+             */
 
-            var genericListing = new GenericList<Customer>();
-            genericListing.Add(new Customer
-            {
-                Id = 1,
-                CustomerName = "John"
-            });
 
-            var listAPI = new List<int>();
+            var process = new PhotoProcessor();
 
-            } */
-            // boxing and un-boxing
-            // boxing - converting value type to object type 
-            // un-boxing - converting object type to value type 
+            var filters = new PhotoFilter();
 
-            // binary search and lenear search -> 
+            Action<Photo> handler = filters.ApplyBrightness;
+            handler += filters.ApplyContrast;
+            handler += process.CustomFilter;
 
-            // Dictionary Genrics :
-            // Dictionary - Dictionary is a DataStructure that user a hash table to store and retrieve objects 
-            // which provide very fast way to save and retrieve objects 
-            // --- there are represented as key-value pair
-            var someGenerics = new GenericDictionary<string, Customer>();
-            someGenerics.Add("retail", new Customer());
-            someGenerics.Add("wholesale", new Customer());
-            someGenerics.Add("vendor", new Customer());
+            process.Process("path", handler);
+
+            Console.ReadKey();
+
+            /*
+             * 16 params they both can take
+             * 
+             Func -> when you are using functions 
+             Action -> when you are using method 
+             */
+
 
         }
+          
     }
 
 
 
-    public class Utilities
+    public class Photo
     {
-        public int Max(int a, int b)
+    
+        public static Photo PhotoLoad(string path)
         {
-            return a > b ? a : b;
+            return new Photo();   
         }
 
+        public void Save()
+        {
+            Console.WriteLine("Photo saved to paths :::" );
+        }
+    }
+
+    public class PhotoFilter
+    {
+        public void ApplyBrightness(Photo photo)
+        {
+            Console.WriteLine("Apply Brightness");
+        }
+
+        public void ApplyContrast(Photo photo)
+        {
+            Console.WriteLine("Apply Contrast");
+        }
+        public void ApplyResize(Photo photo)
+        {
+            Console.WriteLine("Apply Resize");
+        }
     
     }
 
-    public class UtilitiesSec<T> where T : IComparable
+    public class PhotoProcessor
     {
-        public int Max(int a, int b)
+        public delegate void PhotoFilterHadler (Photo photo);
+        
+        public void Process (string path, Action<Photo> photoHandler)
         {
-            return a > b? a : b;
+            var photo =  Photo.PhotoLoad(path);          
+
+            photoHandler(photo);
+
+            photoHandler += CustomFilter;        
+
+            photo.Save();
         }
 
-        public T Max(T a , T b)
+        public void CustomFilter (Photo photo)
         {
-            return a.CompareTo(b) > 0 ? a : b;
+            Console.WriteLine("Custom filter");
         }
     }
-
-    public class GeneCustomer<T> where  T: Customer
-    {
-
-    }
-
-    public class Nullable<T> where T : struct
-    {
-
-    }
-
-
-
-
-
-
-    public class GenericDictionary<Tkey, TValue>
-    {
-        public void Add(Tkey key, TValue value)
-        {
-
-        }
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    public class Customer
-    {
-        public int Id { get; set; }
-        public string CustomerName { get; set; }
-    }
-
-    public class CustomList
-    {
-        public void Add (object number) 
-        {
-            throw new NotImplementedException();
-        }
-
-        public int this[int index]
-        {
-            get { throw new NotImplementedException(); }
-        }
-    }
-
-    public class GenericList<T>
-    {
-        public void Add(T value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public T this[int index]
-        {
-            get { throw new NotImplementedException(); }
-        }
-    }
-
-
 
 }
