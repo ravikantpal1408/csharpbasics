@@ -7,73 +7,65 @@ namespace Program
     {
         public static void Main(string[] args)
         {
-            // Session 10 : Lambda Expression 
-
+            // Session 10 : Events 
             /*
-             What is Lambda Expression ?
-            Ans - 
-                - An anonymous method which does not have 
-                    - access modifier
-                    - no name 
-                    - no return type 
-
-            Why do we requrie this expression ?
-                - ans : for dev convience and code readablity 
-
-                // arg => expression
+             A Mechanism for communication b/w the objects
+            - Why it is used ?
+            - It is used to build loosely coupled and exptensible application 
              */
 
-            //var result = square(5);
-            //Console.WriteLine(result);
-
-            //Func<int, int> square = number => number * number;
-
-            //Console.WriteLine(square(5));
 
             /*
-             () => expression
-             x => expression
-            (x, y,z) => expression
+             pubic class VideoEncoder
+             {
+                public void Encode(Video video)
+                {
+                    Encoding ....
+                    
+                    _mailService(new Mail());
+                    _messageService(new Text());
+
+                }
+
+            public void OnVideoEncoded(object source, EventArgs e)
+            {
+            
+            
+            }
+        
+            
+            }
+
+            publisher
+            VIDEO ENCODER --------------> mail service 
+                          --------------> text service   
              
              */
-
-            // WAP to print the multiplier of 50
-            /*  10 * 5 = 50 */
-            //const int factor = 5;
-            //Func<int, int> multiplier = n => factor * n;
-            //Console.WriteLine(multiplier(10));
-
-
-
-            var books = new BookRepository().GetBook();
-            var collection = books.FindAll(book => book.Price < 10);
-
-            foreach (var book in collection)
-            {
-                Console.WriteLine(book.Title);
-            }
-
+            
         }
 
 
-        public static int square(int number)
+
+
+    }
+
+
+    class Discount
+    {
+        void Calculate(string goldCustomer)
         {
-            return number * number;
+
         }
 
-        public class BookRepository
+        void Calculate(string platinum, string prvilege)
         {
-            public List<Book> GetBook()
-            {
-                return new List<Book>
-                {
-                    new Book() { Title = "Harry Potter", Price = 10.2 },
-                    new Book() { Title = "Narnia", Price = 5 },
-                    new Book() { Title = "Mein Kampe", Price = 7 }
-                };
-            }
+
         }
 
+        void Calculate()
+        {
+
+        }
     }
 
 
