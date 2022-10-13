@@ -7,93 +7,74 @@ namespace Program
     {
         public static void Main(string[] args)
         {
-            // Session 9 : Delegates
-            /*
-                An object that knows how to call a method or a group of method 
-                A reference to a function 
-
-                - Multicast delegate -> allows you to point to multiple functions 
-                - Delegate -> allow you to point to a single function
-             */
-
-
-            var process = new PhotoProcessor();
-
-            var filters = new PhotoFilter();
-
-            Action<Photo> handler = filters.ApplyBrightness;
-            handler += filters.ApplyContrast;
-            handler += process.CustomFilter;
-
-            process.Process("path", handler);
-
-            Console.ReadKey();
+            // Session 10 : Lambda Expression 
 
             /*
-             * 16 params they both can take
-             * 
-             Func -> when you are using functions 
-             Action -> when you are using method 
+             What is Lambda Expression ?
+            Ans - 
+                - An anonymous method which does not have 
+                    - access modifier
+                    - no name 
+                    - no return type 
+
+            Why do we requrie this expression ?
+                - ans : for dev convience and code readablity 
+
+                // arg => expression
              */
 
+            //var result = square(5);
+            //Console.WriteLine(result);
+
+            //Func<int, int> square = number => number * number;
+
+            //Console.WriteLine(square(5));
+
+            /*
+             () => expression
+             x => expression
+            (x, y,z) => expression
+             
+             */
+
+            // WAP to print the multiplier of 50
+            /*  10 * 5 = 50 */
+            //const int factor = 5;
+            //Func<int, int> multiplier = n => factor * n;
+            //Console.WriteLine(multiplier(10));
+
+
+
+            var books = new BookRepository().GetBook();
+            var collection = books.FindAll(book => book.Price < 10);
+
+            foreach (var book in collection)
+            {
+                Console.WriteLine(book.Title);
+            }
 
         }
-          
+
+
+        public static int square(int number)
+        {
+            return number * number;
+        }
+
+        public class BookRepository
+        {
+            public List<Book> GetBook()
+            {
+                return new List<Book>
+                {
+                    new Book() { Title = "Harry Potter", Price = 10.2 },
+                    new Book() { Title = "Narnia", Price = 5 },
+                    new Book() { Title = "Mein Kampe", Price = 7 }
+                };
+            }
+        }
+
     }
 
-
-
-    public class Photo
-    {
-    
-        public static Photo PhotoLoad(string path)
-        {
-            return new Photo();   
-        }
-
-        public void Save()
-        {
-            Console.WriteLine("Photo saved to paths :::" );
-        }
-    }
-
-    public class PhotoFilter
-    {
-        public void ApplyBrightness(Photo photo)
-        {
-            Console.WriteLine("Apply Brightness");
-        }
-
-        public void ApplyContrast(Photo photo)
-        {
-            Console.WriteLine("Apply Contrast");
-        }
-        public void ApplyResize(Photo photo)
-        {
-            Console.WriteLine("Apply Resize");
-        }
-    
-    }
-
-    public class PhotoProcessor
-    {
-        public delegate void PhotoFilterHadler (Photo photo);
-        
-        public void Process (string path, Action<Photo> photoHandler)
-        {
-            var photo =  Photo.PhotoLoad(path);          
-
-            photoHandler(photo);
-
-            photoHandler += CustomFilter;        
-
-            photo.Save();
-        }
-
-        public void CustomFilter (Photo photo)
-        {
-            Console.WriteLine("Custom filter");
-        }
-    }
 
 }
