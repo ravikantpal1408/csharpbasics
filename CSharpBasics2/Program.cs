@@ -36,7 +36,7 @@ namespace Program
             
             }
 
-            publisher
+            publisher                     Subscriber
             VIDEO ENCODER --------------> mail service 
                           --------------> text service   
              
