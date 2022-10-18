@@ -7,41 +7,10 @@ namespace Program
     {
         public static void Main(string[] args)
         {
-            // Session 10 : Events 
-            /*
-             A Mechanism for communication b/w the objects
-            - Why it is used ?
-            - It is used to build loosely coupled and exptensible application 
-             */
 
+            dynamic name = "RaviKant Pal";
+            name++;
 
-            /*
-             pubic class VideoEncoder
-             {
-                public void Encode(Video video)
-                {
-                    Encoding ....
-                    
-                    _mailService(new Mail());
-                    _messageService(new Text());
-
-                }
-
-            public void OnVideoEncoded(object source, EventArgs e)
-            {
-            
-            
-            }
-        
-            
-            }
-
-            publisher                     Subscriber
-            VIDEO ENCODER --------------> mail service 
-                          --------------> text service   
-             
-             */
-            
         }
 
 
